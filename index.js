@@ -1,3 +1,5 @@
+'use strict';
+
 const path = require('path');
 
 const express = require('express');
@@ -10,8 +12,9 @@ const app = express();
 
 app.use(bodyParser.json());
 
-app.use('/', pagesRoutes)
-app.use('/graphgl', graphqlRoutes);
+app.use('/', pagesRoutes);
+app.use('/graphql', graphqlRoutes);
 app.use(express.static(path.join(__dirname, 'public')));
 
+// eslint-disable-next-line no-console
 app.listen(3000, () => console.log('Express app listening on localhost:3000'));

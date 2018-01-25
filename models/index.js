@@ -1,16 +1,14 @@
-const Sequelize = require('sequelize');
+'use strict';
 
+const Sequelize = require('sequelize');
 const scheme = require('./scheme');
 
 const Op = Sequelize.Op;
-
-const sequelize = new Sequelize(null, null, {
-  dialect: 'sqlite',
-  storage: 'db.sqlite3',
-
-operatorsAliases: { $and: Op.and },
-
-  logging: false
+const sequelize = new Sequelize({
+    dialect: 'sqlite',
+    storage: 'db.sqlite3',
+    operatorsAliases: {$and: Op.and},
+    logging: false
 });
 
 scheme(sequelize);
